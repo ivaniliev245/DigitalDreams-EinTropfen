@@ -28,8 +28,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.74, y: 5.57, z: 0}
-  m_LocalScale: {x: 0.29471487, y: 0.37308642, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.15, y: 0.1898885, z: 0.50896657}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.06140983, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 7344289632400124526, guid: 6727823b2b7323044b37678683e6ce92, type: 3}
+  m_Color: {r: 0, g: 1, b: 0.033422947, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,3 +103,4 @@ MonoBehaviour:
   warriorTransform: {fileID: 0}
   proximityThreshold: 1
   isGood: 1
+  lifetime: 5
