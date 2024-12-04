@@ -6303,27 +6303,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.8539473
+      value: 2.2471695
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.7272
+      value: 2.0935392
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.94152164
+      value: 1.1412184
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.11
+      value: 0.114
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.42
+      value: -3.394
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.86
+      value: -2.647
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6357,6 +6357,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character with all animation
       objectReference: {fileID: 0}
+    - target: {fileID: 1630794972795428178, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 73d510df56f1d4a43a8744d95587fbb8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
