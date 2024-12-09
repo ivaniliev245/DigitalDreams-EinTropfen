@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections; // Add this line to use IEnumerator and coroutines
+using System.Collections;
 
 public class RainDroplet : MonoBehaviour
 {
@@ -8,18 +8,19 @@ public class RainDroplet : MonoBehaviour
     public bool isGood = true; // Is the raindrop good or bad
     public float lifetime = 5.0f; // Time before the raindrop is destroyed
 
-    private float fallSpeed = 5.0f; // How fast the raindrop falls
+    private Rigidbody rb; // Reference to the Rigidbody component
 
     void Start()
     {
+        // Cache the Rigidbody component
+        rb = GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody component is missing from the raindrop!");
+        }
+
         // Start the countdown for destroying the raindrop after the specified lifetime
         StartCoroutine(DestroyRaindropAfterTime(lifetime));
-    }
-
-    void Update()
-    {
-        // Move the raindrop downwards
-        transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
     }
 
     IEnumerator DestroyRaindropAfterTime(float lifetime)
