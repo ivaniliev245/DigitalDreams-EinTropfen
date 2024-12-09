@@ -6353,18 +6353,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7823293702887809713, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: e783e68d2c2f82c40bd2a74cb93a74e4, type: 2}
-    - target: {fileID: -1379281431588034120, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: e783e68d2c2f82c40bd2a74cb93a74e4, type: 2}
-    - target: {fileID: 786158112118415810, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: e783e68d2c2f82c40bd2a74cb93a74e4, type: 2}
     - target: {fileID: 919132149155446097, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: m_Name
       value: Character with all animation
@@ -6373,10 +6361,6 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 73d510df56f1d4a43a8744d95587fbb8, type: 2}
-    - target: {fileID: 2597663902433322912, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: e783e68d2c2f82c40bd2a74cb93a74e4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
