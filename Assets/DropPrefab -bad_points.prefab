@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7156004044435450527}
   - component: {fileID: -514661482250227437}
   - component: {fileID: 5377958223875949101}
+  - component: {fileID: -3213070902157489917}
   m_Layer: 0
   m_Name: DropPrefab -bad_points
   m_TagString: Untagged
@@ -105,7 +106,7 @@ MonoBehaviour:
   warriorTransform: {fileID: 0}
   proximityThreshold: 1
   isGood: 0
-  lifetime: 5
+  lifetime: 10
 --- !u!54 &-514661482250227437
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -156,3 +157,25 @@ CapsuleCollider:
   m_Height: 10.02
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3213070902157489917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6409408808507351046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c11265b855408d42af33d62691f5194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChannelMask: 1
+  Gain: 2
+  Use2DDistance: 1
+  UseLocalSpace: 1
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 11400000, guid: e9ce97b7a206dc64d90931ea044e0c72, type: 2}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
