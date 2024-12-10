@@ -9,10 +9,15 @@ public class RainManager : MonoBehaviour
     public float rainSpawnRate = 2.0f;   // Spawn interval in seconds
     public float proximityThreshold = 1.0f; // Proximity distance for checking drops
 
+    // Adjustable bounds for the raindrop spawn area
+    public Vector2 spawnAreaX = new Vector2(-5f, 5f); // Min and Max X bounds
+    public Vector2 spawnAreaZ = new Vector2(-5f, 5f); // Min and Max Z bounds
+    public float spawnHeight = 10f; // Fixed Y spawn above the plane
+
     void Start()
     {
         StartCoroutine(SpawnRaindrops());
-    } 
+    }
 
     IEnumerator SpawnRaindrops()
     {
@@ -30,16 +35,26 @@ public class RainManager : MonoBehaviour
 
         if (raindropPrefab != null)
         {
-            // Spawn position within a defined 2D plane (X, Y only, ignore Z)
+            // Randomize spawn position within the defined 3D bounds
             Vector3 spawnPosition = new Vector3(
-                Random.Range(-5f, 5f), // Random X position
-                10f, // Fixed Y spawn above the screen (adjust as needed)
-                0f // Set Z to 0 to keep it in the 2D plane
+                Random.Range(spawnAreaX.x, spawnAreaX.y), // Random X position
+                spawnHeight, // Fixed Y spawn height
+                Random.Range(spawnAreaZ.x, spawnAreaZ.y) // Random Z position
             );
 
+            // Instantiate the raindrop prefab at the calculated spawn position
             GameObject raindrop = Instantiate(raindropPrefab, spawnPosition, Quaternion.identity);
+            Rigidbody rb = raindrop.GetComponent<Rigidbody>();
+
+            // Ensure the raindrop prefab has a Rigidbody
+            if (rb == null)
+            {
+                Debug.LogError("Raindrop prefab is missing a Rigidbody component!");
+            }
+
             RainDroplet raindropScript = raindrop.GetComponent<RainDroplet>();
 
+            // Assign properties to the raindrop script if present
             if (raindropScript != null)
             {
                 raindropScript.warriorTransform = warriorTransform;
@@ -52,14 +67,19 @@ public class RainManager : MonoBehaviour
         }
     }
 
-    // This method will draw the proximity threshold radius in the Scene view using Gizmos.
     void OnDrawGizmos()
     {
-        // Check if the warriorTransform is set before drawing the Gizmo
+        // Draw spawn area bounds
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(
+            new Vector3((spawnAreaX.x + spawnAreaX.y) / 2, spawnHeight, (spawnAreaZ.x + spawnAreaZ.y) / 2),
+            new Vector3(spawnAreaX.y - spawnAreaX.x, 0.1f, spawnAreaZ.y - spawnAreaZ.x)
+        );
+
+        // Draw proximity threshold sphere around the warrior
         if (warriorTransform != null)
         {
-            // Draw a wireframe sphere with the radius of the proximity threshold
-            Gizmos.color = Color.green; // You can change the color to your preference
+            Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(warriorTransform.position, proximityThreshold);
         }
     }
