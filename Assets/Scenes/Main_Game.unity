@@ -6494,7 +6494,6 @@ MonoBehaviour:
   proximityThreshold: 1
   score: 0
   scoreText: {fileID: 1404734975}
-  cameraTransform: {fileID: 519420032}
 --- !u!1 &839714780
 GameObject:
   m_ObjectHideFlags: 0
