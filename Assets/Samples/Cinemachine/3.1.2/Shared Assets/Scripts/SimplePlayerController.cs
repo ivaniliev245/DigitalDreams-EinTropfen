@@ -77,56 +77,73 @@ namespace Unity.Cinemachine.Samples
             m_IsJumping = false;
             m_TimeLastGrounded = Time.time;
         }
-
-        void Update()
+//------------------------------------begin--------update-------------------------
+  void Update()
         {
             PreUpdate?.Invoke();
             bool justLanded = ProcessJump();
 
             // Input handling
-            var rawInput = new Vector3(MoveX.Value, 0, MoveZ.Value);
-            var inputFrame = GetInputFrame(Vector3.Dot(rawInput, m_LastRawInput) < 0.8f);
-            m_LastRawInput = new Vector2(rawInput.x, rawInput.z); // Update m_LastRawInput
-            m_LastInput = inputFrame * rawInput;
+            Vector3 rawInput = new Vector3(MoveX.Value, 0, MoveZ.Value);
+            rawInput = Vector3.ClampMagnitude(rawInput, 1f); // Ensure input vector magnitude is within range
 
-            if (m_LastInput.sqrMagnitude > 1)
-                m_LastInput.Normalize();
+            // Transform input based on the chosen reference frame
+            Quaternion inputFrame = GetInputFrame(Vector3.Dot(rawInput, m_LastRawInput) < 0.8f);
+            m_LastRawInput = new Vector2(rawInput.x, rawInput.z);
+            Vector3 adjustedInput = inputFrame * rawInput;
 
             if (!m_IsJumping)
             {
                 m_IsSprinting = Sprint.Value > 0.5f;
-                var desiredVelocity = m_LastInput * (m_IsSprinting ? SprintSpeed : Speed);
-                var damping = justLanded ? 0 : Damping;
-                if (Vector3.Angle(m_CurrentVelocityXZ, desiredVelocity) < 100)
-                    m_CurrentVelocityXZ = Vector3.Slerp(
-                        m_CurrentVelocityXZ, desiredVelocity,
-                        Damper.Damp(1, damping, Time.deltaTime));
+                Vector3 desiredVelocity = adjustedInput * (m_IsSprinting ? SprintSpeed : Speed);
+
+                float damping = justLanded ? 0f : Damping;
+                if (Vector3.Angle(m_CurrentVelocityXZ, desiredVelocity) < 100f)
+                    m_CurrentVelocityXZ = Vector3.Slerp(m_CurrentVelocityXZ, desiredVelocity, Damper.Damp(1f, damping, Time.deltaTime));
                 else
-                    m_CurrentVelocityXZ += Damper.Damp(
-                        desiredVelocity - m_CurrentVelocityXZ, damping, Time.deltaTime);
+                    m_CurrentVelocityXZ += Damper.Damp(desiredVelocity - m_CurrentVelocityXZ, damping, Time.deltaTime);
             }
 
             ApplyMotion();
 
-            if (!Strafe && m_CurrentVelocityXZ.sqrMagnitude > 0.001f)
+            // // Rotation logic for Strafe and Non-Strafe modes
+            // if (!Strafe && m_CurrentVelocityXZ.sqrMagnitude > 0.001f)
+            // {
+            //     // Rotate character to face movement direction
+            //     Quaternion targetRotation = Quaternion.LookRotation(m_CurrentVelocityXZ.normalized, UpDirection);
+            //     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Damper.Damp(1f, Damping, Time.deltaTime));
+            // }
+            // else if (Strafe)
+            // {
+            //     // Maintain fixed rotation for strafing
+            //     Quaternion targetRotation = Quaternion.LookRotation(inputFrame * Vector3.forward, UpDirection);
+            //     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Damper.Damp(1f, Damping, Time.deltaTime));
+            // }
+
+            // // Notify post-update actions
+            // PostUpdate?.Invoke(Quaternion.Inverse(transform.rotation) * m_CurrentVelocityXZ, m_IsSprinting ? JumpSpeed / SprintJumpSpeed : 1f);
+                        if (!Strafe && m_CurrentVelocityXZ.sqrMagnitude > 0.001f)
             {
-                var fwd = inputFrame * Vector3.forward;
-                var qA = transform.rotation;
-                var qB = Quaternion.LookRotation(
-                    (InputForward == ForwardModes.Player && Vector3.Dot(fwd, m_CurrentVelocityXZ) < 0)
-                        ? -m_CurrentVelocityXZ : m_CurrentVelocityXZ, UpDirection);
-                var damping = justLanded ? 0 : Damping;
-                transform.rotation = Quaternion.Slerp(qA, qB, Damper.Damp(1, damping, Time.deltaTime));
+                // Flip the rotation direction
+                Vector3 rotationDirection = -m_CurrentVelocityXZ.normalized; // Invert direction
+                var targetRotation = Quaternion.LookRotation(rotationDirection, UpDirection);
+
+                // Smoothly interpolate to the target rotation
+                transform.rotation = Quaternion.Slerp(
+                    transform.rotation, 
+                    targetRotation, 
+                    Damper.Damp(1f, Damping, Time.deltaTime));
             }
 
-            if (PostUpdate != null)
-            {
-                var vel = Quaternion.Inverse(transform.rotation) * m_CurrentVelocityXZ;
-                vel.y = m_CurrentVelocityY;
-                PostUpdate(vel, m_IsSprinting ? JumpSpeed / SprintJumpSpeed : 1);
-            }
+       
+
+       
+       
+       
+       
         }
 
+// ------------------------END----OF------UPDATE-----------------------
         Vector3 UpDirection => UpMode == UpModes.World ? Vector3.up : transform.up;
         Quaternion GetInputFrame(bool inputDirectionChanged)
         {

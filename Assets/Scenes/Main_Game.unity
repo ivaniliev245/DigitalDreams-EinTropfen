@@ -6587,7 +6587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 8
   SprintSpeed: 4
-  JumpSpeed: 4
+  JumpSpeed: 0
   SprintJumpSpeed: 6
   MoveX:
     Value: 0
