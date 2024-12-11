@@ -7162,14 +7162,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8531248215242998404, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 21645dfdd383f6843b1e2fba5b95cf9a, type: 2}
     - target: {fileID: -7823293702887809713, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 21645dfdd383f6843b1e2fba5b95cf9a, type: 2}
+    - target: {fileID: -5738929356375114689, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 21645dfdd383f6843b1e2fba5b95cf9a, type: 2}
     - target: {fileID: -1379281431588034120, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 43675ccd03819ab4698afcf5a0075f54, type: 2}
+      objectReference: {fileID: 2100000, guid: 0e7f00b0fcb714d43a085fd16b326c05, type: 2}
     - target: {fileID: 786158112118415810, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -7186,6 +7194,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d6cd4adbc7304fd4fa3037dbd3c091de, type: 2}
+    - target: {fileID: 5768108416517333019, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4e8dea45546526e40af29f40095faf8c, type: 2}
     - target: {fileID: 5866666021909216657, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -8408,8 +8420,8 @@ Transform:
   m_GameObject: {fileID: 1665776809}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.2, y: -44.27, z: 127}
-  m_LocalScale: {x: 19.971327, y: 19.971323, z: 19.971325}
+  m_LocalPosition: {x: 0.2, y: 6.1, z: 127}
+  m_LocalScale: {x: 27.562428, y: 27.562424, z: 27.562426}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
