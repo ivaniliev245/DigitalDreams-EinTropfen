@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Blend Tree
-  m_Speed: 4
+  m_Speed: 2
   m_CycleOffset: 0.84
   m_Transitions:
   - {fileID: -3012112780622765348}
@@ -63,10 +63,10 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.28986174
-  m_TransitionOffset: 0.044199962
-  m_ExitTime: 0.051679976
-  m_HasExitTime: 1
+  m_TransitionDuration: 0.18556042
+  m_TransitionOffset: 0
+  m_ExitTime: 1.8218427e-10
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -148,7 +148,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.2547205
   m_TransitionOffset: 0
   m_ExitTime: 0.06380674
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -161,7 +161,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hit
-  m_Speed: 5
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 864717938327193105}
