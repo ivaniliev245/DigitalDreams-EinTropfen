@@ -1,5 +1,7 @@
 using UnityEngine;
-using TMPro; // Add this for TextMeshPro
+using TMPro;
+using Unity.Cinemachine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -7,6 +9,11 @@ public class PlayerController : MonoBehaviour
     public float proximityThreshold = 1.0f; // Proximity for interaction
     public int score = 0; // Player's score
     public TextMeshProUGUI scoreText; // Reference to the TextMeshProUGUI component
+
+    public CinemachineImpulseSource impulseSource; // Cinemachine Impulse Source
+    public GameObject dropletHitEffect; // Effect when the droplet hits the camera
+    public Transform cameraTransform; // Reference to the camera transform
+    public float hitSpeed = 2.0f; // Speed of the droplet moving toward the camera
 
     void Update()
     {
@@ -19,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleSpacebarPress()
     {
-        // Find all raindrops (now RainDroplets) in the scene
+        // Find all raindrops in the scene
         RainDroplet[] raindrops = FindObjectsOfType<RainDroplet>();
         bool foundRaindrop = false;
 
@@ -42,8 +49,9 @@ public class PlayerController : MonoBehaviour
                     Debug.Log("Bad Raindrop! Score: " + score);
                 }
 
-                // Destroy the raindrop after interaction
-                Destroy(raindrop.gameObject);
+                // Move the raindrop toward the camera and handle hit
+                StartCoroutine(MoveDropletToCamera(raindrop));
+
                 break;
             }
         }
@@ -57,6 +65,37 @@ public class PlayerController : MonoBehaviour
 
         // Update the score text in the UI
         UpdateScoreText();
+    }
+
+    IEnumerator MoveDropletToCamera(RainDroplet raindrop)
+    {
+        Transform dropletTransform = raindrop.transform;
+        Vector3 startPosition = dropletTransform.position;
+        Vector3 targetPosition = cameraTransform.position;
+
+        float progress = 0f;
+
+        while (progress < 1f)
+        {
+            progress += Time.deltaTime * hitSpeed;
+            dropletTransform.position = Vector3.Lerp(startPosition, targetPosition, progress);
+            yield return null;
+        }
+
+        // Trigger Cinemachine Impulse for camera shake
+        if (impulseSource != null)
+        {
+            impulseSource.GenerateImpulse();
+        }
+
+        // Create a hit effect at the camera
+        if (dropletHitEffect != null)
+        {
+            Instantiate(dropletHitEffect, cameraTransform.position, Quaternion.identity);
+        }
+
+        // Destroy the droplet
+        Destroy(raindrop.gameObject);
     }
 
     // Update the score display

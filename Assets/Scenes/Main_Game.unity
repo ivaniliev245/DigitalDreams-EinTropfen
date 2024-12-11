@@ -6520,6 +6520,10 @@ MonoBehaviour:
   proximityThreshold: 1
   score: 0
   scoreText: {fileID: 1404734975}
+  impulseSource: {fileID: 442089194}
+  dropletHitEffect: {fileID: 341067121604219032, guid: 02be2f57009fb504590fc3de251f615e, type: 3}
+  cameraTransform: {fileID: 616494561}
+  hitSpeed: 2
 --- !u!114 &780404936
 MonoBehaviour:
   m_ObjectHideFlags: 0
