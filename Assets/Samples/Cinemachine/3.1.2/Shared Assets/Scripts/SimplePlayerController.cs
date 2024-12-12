@@ -164,7 +164,7 @@ namespace Unity.Cinemachine.Samples
 
         void ApplyMotion()
         {
-            Vector3 motion = m_CurrentVelocityXZ;
+            Vector3 motion = m_CurrentVelocityXZ;  //ed
             motion.y = m_CurrentVelocityY;
             if (m_Controller != null)
                 m_Controller.Move(motion * Time.deltaTime);
