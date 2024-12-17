@@ -251,6 +251,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e0df9ee981a51a44998895609d9b8ce9, type: 2}
+    - target: {fileID: 33683998995368435, guid: fc9f333c3ee6df84f883c463f83aa0b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.32
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fc9f333c3ee6df84f883c463f83aa0b6, type: 3}
       propertyPath: m_Name
       value: Big_Tuna
@@ -270,10 +274,77 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fc9f333c3ee6df84f883c463f83aa0b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4841472283633195388}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fc9f333c3ee6df84f883c463f83aa0b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2637390184518935893}
   m_SourcePrefab: {fileID: 100100000, guid: fc9f333c3ee6df84f883c463f83aa0b6, type: 3}
 --- !u!4 &1348176703809691713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fc9f333c3ee6df84f883c463f83aa0b6, type: 3}
+  m_PrefabInstance: {fileID: 1530967604615038890}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1533684064413683289 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 33683998995368435, guid: fc9f333c3ee6df84f883c463f83aa0b6, type: 3}
+  m_PrefabInstance: {fileID: 1530967604615038890}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1873074395803089659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fc9f333c3ee6df84f883c463f83aa0b6, type: 3}
+  m_PrefabInstance: {fileID: 1530967604615038890}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4841472283633195388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873074395803089659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a63eef503a567ef4eaf3898b5732b105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jiggleUpdateMode: 0
+  jiggleZones:
+  - rootTransform: {fileID: 1533684064413683289}
+    jiggleSettings: {fileID: 11400000, guid: d59358c4708acdf46b4afa17f53616b1, type: 2}
+    ignoredTransforms: []
+    colliders: []
+    animated: 0
+    radius: 2
+  targetSkins: []
+  wind: {x: 0, y: 0, z: 0}
+  debugDraw: 1
+  <blend>k__BackingField: 1
+--- !u!114 &2637390184518935893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873074395803089659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d76f24409a39604ca3986f91ce6d28a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jiggleUpdateMode: 0
+  <blend>k__BackingField: 1
+  jiggleRigs:
+  - rootTransform: {fileID: 7927877698127622367}
+    jiggleSettings: {fileID: 11400000, guid: b7fce8dfda721b548a5b989dc918b2a8, type: 2}
+    ignoredTransforms: []
+    colliders: []
+    animated: 0
+  wind: {x: 0, y: 0, z: 0}
+  debugDraw: 1
+--- !u!4 &7927877698127622367 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8879528566716807029, guid: fc9f333c3ee6df84f883c463f83aa0b6, type: 3}
   m_PrefabInstance: {fileID: 1530967604615038890}
   m_PrefabAsset: {fileID: 0}
