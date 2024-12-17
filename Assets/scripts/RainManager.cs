@@ -14,6 +14,9 @@ public class RainManager : MonoBehaviour
     public Vector2 spawnAreaZ = new Vector2(-5f, 5f); // Min and Max Z bounds
     public float spawnHeight = 10f; // Fixed Y spawn above the plane
 
+    // Adjustable scale randomness
+    public Vector2 scaleRange = new Vector2(0.5f, 1.5f); // Min and Max scale
+
     void Start()
     {
         StartCoroutine(SpawnRaindrops());
@@ -42,8 +45,20 @@ public class RainManager : MonoBehaviour
                 Random.Range(spawnAreaZ.x, spawnAreaZ.y) // Random Z position
             );
 
-            // Instantiate the raindrop prefab at the calculated spawn position
-            GameObject raindrop = Instantiate(raindropPrefab, spawnPosition, Quaternion.identity);
+            // Randomize rotation
+            Quaternion spawnRotation = Quaternion.Euler(
+                Random.Range(0f, 360f), // Random X rotation
+                Random.Range(0f, 360f), // Random Y rotation
+                Random.Range(0f, 360f)  // Random Z rotation
+            );
+
+            // Instantiate the raindrop prefab with the randomized position and rotation
+            GameObject raindrop = Instantiate(raindropPrefab, spawnPosition, spawnRotation);
+
+            // Randomize scale
+            float randomScale = Random.Range(scaleRange.x, scaleRange.y);
+            raindrop.transform.localScale = Vector3.one * randomScale;
+
             Rigidbody rb = raindrop.GetComponent<Rigidbody>();
 
             // Ensure the raindrop prefab has a Rigidbody

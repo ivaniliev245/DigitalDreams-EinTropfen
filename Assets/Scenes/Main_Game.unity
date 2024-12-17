@@ -5548,8 +5548,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 0.14, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10, y: 0.1, z: 10}
+  m_Center: {x: 0, y: -0.05, z: 0}
 --- !u!1 &436835598
 GameObject:
   m_ObjectHideFlags: 0
@@ -5702,7 +5702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImpulseDefinition:
     ImpulseChannel: 1
-    ImpulseShape: 2
+    ImpulseShape: 3
     CustomImpulseShape:
       serializedVersion: 2
       m_Curve: []
@@ -5738,9 +5738,9 @@ MonoBehaviour:
     ImpactRadius: 100
     DirectionMode: 0
     DissipationMode: 2
-    DissipationDistance: 1000
+    DissipationDistance: 10
     PropagationSpeed: 100
-  DefaultVelocity: {x: 0, y: 1, z: 0}
+  DefaultVelocity: {x: 0, y: 0.2, z: 0}
 --- !u!4 &442089195
 Transform:
   m_ObjectHideFlags: 0
@@ -6306,7 +6306,7 @@ MonoBehaviour:
     m_SecondaryNoise: {fileID: 11400000, guid: e9ce97b7a206dc64d90931ea044e0c72, type: 2}
     AmplitudeGain: 1
     FrequencyGain: 1
-    Duration: 2
+    Duration: 1
     m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &616494559
 MonoBehaviour:
@@ -7034,13 +7034,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
+  m_Height: 14.52
+  m_Radius: 3.07
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 5.37, z: 0}
 --- !u!1 &839714780
 GameObject:
   m_ObjectHideFlags: 0
@@ -7123,7 +7123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.08074874
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7131,7 +7131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.6163394
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 51b90f5265453224b8bb09f36f2e1014, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7792,13 +7792,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goodRaindropPrefab: {fileID: 341067121604219032, guid: 02be2f57009fb504590fc3de251f615e, type: 3}
-  badRaindropPrefab: {fileID: 6409408808507351046, guid: cd745c6c189496349a524b895dba3380, type: 3}
+  badRaindropPrefab: {fileID: 341067121604219032, guid: 02be2f57009fb504590fc3de251f615e, type: 3}
   warriorTransform: {fileID: 780404933}
   rainSpawnRate: 1
   proximityThreshold: 2.04
   spawnAreaX: {x: -5, y: 5}
   spawnAreaZ: {x: -5, y: 5}
   spawnHeight: 10
+  scaleRange: {x: 0.5, y: 1}
 --- !u!1 &1513524149
 GameObject:
   m_ObjectHideFlags: 0
