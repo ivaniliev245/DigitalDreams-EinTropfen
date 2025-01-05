@@ -1,13 +1,14 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class RainManager : MonoBehaviour
 {
-    public GameObject goodRaindropPrefab; // Good Raindrop prefab
-    public GameObject badRaindropPrefab; // Bad Raindrop prefab
-    public Transform warriorTransform;   // Reference to the warrior
-    public float rainSpawnRate = 2.0f;   // Spawn interval in seconds
-    public float proximityThreshold = 1.0f; // Proximity distance for checking drops
+    public List<GameObject> goodRaindropPrefabs; // List of good raindrop prefabs
+    public List<GameObject> badRaindropPrefabs;  // List of bad raindrop prefabs
+    public Transform warriorTransform;          // Reference to the warrior
+    public float rainSpawnRate = 2.0f;          // Spawn interval in seconds
+    public float proximityThreshold = 1.0f;     // Proximity distance for checking drops
 
     // Adjustable bounds for the raindrop spawn area
     public Vector2 spawnAreaX = new Vector2(-5f, 5f); // Min and Max X bounds
@@ -19,6 +20,11 @@ public class RainManager : MonoBehaviour
 
     void Start()
     {
+        if (goodRaindropPrefabs == null || goodRaindropPrefabs.Count == 0)
+            Debug.LogError("No good raindrop prefabs assigned.");
+        if (badRaindropPrefabs == null || badRaindropPrefabs.Count == 0)
+            Debug.LogError("No bad raindrop prefabs assigned.");
+
         StartCoroutine(SpawnRaindrops());
     }
 
@@ -33,8 +39,19 @@ public class RainManager : MonoBehaviour
 
     void SpawnRaindrop()
     {
+        GameObject raindropPrefab = null;
+
         // Randomly decide to spawn a Good or Bad raindrop
-        GameObject raindropPrefab = Random.value < 0.7f ? goodRaindropPrefab : badRaindropPrefab; // 70% chance for Good
+        if (Random.value < 0.7f && goodRaindropPrefabs.Count > 0) // 70% chance for Good
+        {
+            int index = Random.Range(0, goodRaindropPrefabs.Count);
+            raindropPrefab = goodRaindropPrefabs[index];
+        }
+        else if (badRaindropPrefabs.Count > 0) // 30% chance for Bad
+        {
+            int index = Random.Range(0, badRaindropPrefabs.Count);
+            raindropPrefab = badRaindropPrefabs[index];
+        }
 
         if (raindropPrefab != null)
         {
@@ -78,7 +95,7 @@ public class RainManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Raindrop prefab is not assigned.");
+            Debug.LogError("Failed to select a raindrop prefab.");
         }
     }
 
