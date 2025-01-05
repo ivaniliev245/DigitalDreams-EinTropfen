@@ -8,6 +8,9 @@ public class RainDroplet : MonoBehaviour
     public bool isGood = true; // Is the raindrop good or bad
     public float lifetime = 5.0f; // Time before the raindrop is destroyed
 
+    public GameObject destructionVFX; // Prefab for the destruction VFX
+    public float vfxLifetime = 2.0f; // Time before the VFX is destroyed
+
     private Rigidbody rb; // Reference to the Rigidbody component
 
     void Start()
@@ -26,7 +29,15 @@ public class RainDroplet : MonoBehaviour
     IEnumerator DestroyRaindropAfterTime(float lifetime)
     {
         yield return new WaitForSeconds(lifetime); // Wait for the lifetime before destroying
-        Destroy(gameObject); // Destroy the raindrop after the specified lifetime
+
+        // Spawn the destruction VFX
+        if (destructionVFX != null)
+        {
+            GameObject vfxInstance = Instantiate(destructionVFX, transform.position, Quaternion.identity);
+            Destroy(vfxInstance, vfxLifetime); // Destroy the VFX after its lifetime
+        }
+
+        Destroy(gameObject); // Destroy the raindrop
     }
 
     public bool IsInProximity()
