@@ -231,11 +231,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cf29ea0347c144092c53be1e6d495b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warriorTransform: {fileID: 2433282508538045228, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
+  warriorTransform: {fileID: 0}
   proximityThreshold: 1
   isGood: 1
   lifetime: 4
-  destructionVFX: {fileID: 0}
+  destructionVFX: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
   vfxLifetime: 2
 --- !u!1 &867506488786867849
 GameObject:
