@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Spine_Big_Tuna
   m_EditorClassIdentifier: 
   gravityMultiplier: 0
-  friction: 0.258
+  friction: 0.869
   angleElasticity: 1
   blend: 1
   airDrag: 0.145
