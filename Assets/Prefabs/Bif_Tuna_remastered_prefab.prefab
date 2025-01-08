@@ -292,11 +292,17 @@ MonoBehaviour:
   jiggleRigs:
   - rootTransform: {fileID: 9158169057225678321}
     jiggleSettings: {fileID: 11400000, guid: 402a5c22bfb6bc24b9d2baa7b228055c, type: 2}
-    ignoredTransforms: []
+    ignoredTransforms:
+    - {fileID: 4052134498525433874}
     colliders: []
     animated: 0
   wind: {x: 0, y: 0, z: 0}
   debugDraw: 0
+--- !u!4 &4052134498525433874 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4331940336047323798, guid: 96e341a8f55964f458eaa5c09077695f, type: 3}
+  m_PrefabInstance: {fileID: 297859983830133380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9158169057225678321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8879528566716807029, guid: 96e341a8f55964f458eaa5c09077695f, type: 3}
