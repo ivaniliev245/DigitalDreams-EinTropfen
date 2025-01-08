@@ -7551,7 +7551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goodRaindropPrefabs:
   - {fileID: 2831724761287408344, guid: c37c81369f128154c91e80fbdae43d43, type: 3}
-  - {fileID: 341067121604219032, guid: 02be2f57009fb504590fc3de251f615e, type: 3}
+  - {fileID: 341067121604219032, guid: fa7e9be549285a74288aee848b250458, type: 3}
   - {fileID: 779647402741673059, guid: 24440ed5c29b8ee41926191ebed8c621, type: 3}
   badRaindropPrefabs:
   - {fileID: 341067121604219032, guid: 02be2f57009fb504590fc3de251f615e, type: 3}

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4249252945259956000}
   - component: {fileID: 3140454181103848224}
   m_Layer: 0
-  m_Name: DropPrefab - good_points
+  m_Name: Bif_Tuna_good_points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
