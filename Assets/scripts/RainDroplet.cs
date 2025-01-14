@@ -11,6 +11,9 @@ public class RainDroplet : MonoBehaviour
     public GameObject destructionVFX; // Prefab for the destruction VFX
     public float vfxLifetime = 2.0f; // Time before the VFX is destroyed
 
+    public float mass = 1.0f; // Default mass for the droplet
+    public float drag = 0.0f; // Default drag for the droplet
+
     private Rigidbody rb; // Reference to the Rigidbody component
 
     void Start()
@@ -20,6 +23,12 @@ public class RainDroplet : MonoBehaviour
         if (rb == null)
         {
             Debug.LogError("Rigidbody component is missing from the raindrop!");
+        }
+        else
+        {
+            // Set Rigidbody properties
+            rb.mass = mass;
+            rb.linearDamping = drag;
         }
 
         // Start the countdown for destroying the raindrop after the specified lifetime

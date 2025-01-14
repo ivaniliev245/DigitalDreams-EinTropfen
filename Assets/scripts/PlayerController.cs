@@ -13,15 +13,32 @@ public class PlayerController : MonoBehaviour
     public CinemachineImpulseSource impulseSource; // Cinemachine Impulse Source
     public GameObject dropletHitEffect; // Effect when the droplet hits the camera
     public Transform cameraTransform; // Reference to the camera transform
-    public float hitSpeed = 2.0f; // Speed of the droplet moving toward the camera
+    public float hitSpeed = 2.0f; // Base speed of the droplet moving toward the camera
+
+    public Transform hitPositionTransform; // Empty transform to define the hit position
+    public float hitRadius = 1.0f; // Radius around the hit position where interaction is allowed
+
+    public float hitDelay = 0.0f; // Adjustable delay before the hit occurs
 
     void Update()
     {
         // Check for spacebar press
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            HandleSpacebarPress();
+            StartCoroutine(HandleSpacebarPressWithDelay());
         }
+    }
+
+    IEnumerator HandleSpacebarPressWithDelay()
+    {
+        // Wait for the specified delay
+        if (hitDelay > 0)
+        {
+            yield return new WaitForSeconds(hitDelay);
+        }
+
+        // Proceed to handle the raindrop interaction
+        HandleSpacebarPress();
     }
 
     void HandleSpacebarPress()
@@ -32,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
         foreach (RainDroplet raindrop in raindrops)
         {
-            if (raindrop.IsInProximity())
+            if (IsInHitZone(raindrop.transform.position))
             {
                 foundRaindrop = true;
 
@@ -69,15 +86,17 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator MoveDropletToCamera(RainDroplet raindrop)
     {
+        Rigidbody rb = raindrop.GetComponent<Rigidbody>();
         Transform dropletTransform = raindrop.transform;
         Vector3 startPosition = dropletTransform.position;
         Vector3 targetPosition = cameraTransform.position;
 
         float progress = 0f;
+        float adjustedSpeed = hitSpeed / (rb != null ? rb.mass : 1.0f); // Adjust speed based on mass
 
         while (progress < 1f)
         {
-            progress += Time.deltaTime * hitSpeed;
+            progress += Time.deltaTime * adjustedSpeed;
             dropletTransform.position = Vector3.Lerp(startPosition, targetPosition, progress);
             yield return null;
         }
@@ -85,7 +104,8 @@ public class PlayerController : MonoBehaviour
         // Trigger Cinemachine Impulse for camera shake
         if (impulseSource != null)
         {
-            impulseSource.GenerateImpulse();
+            float impulseStrength = rb != null ? Mathf.Clamp(rb.mass, 1.0f, 10.0f) : 1.0f; // Scale impulse between 1 and 10
+            impulseSource.GenerateImpulse(impulseStrength);
         }
 
         // Create a hit effect at the camera
@@ -98,12 +118,34 @@ public class PlayerController : MonoBehaviour
         Destroy(raindrop.gameObject);
     }
 
+    // Check if a position is within the hit zone
+    bool IsInHitZone(Vector3 position)
+    {
+        if (hitPositionTransform == null)
+        {
+            Debug.LogError("Hit Position Transform is not assigned in the PlayerController!");
+            return false;
+        }
+
+        return Vector3.Distance(position, hitPositionTransform.position) <= hitRadius;
+    }
+
     // Update the score display
     void UpdateScoreText()
     {
         if (scoreText != null)
         {
             scoreText.text = "Score: " + score; // Display the score
+        }
+    }
+
+    // Draw the hit zone in the Unity Editor
+    void OnDrawGizmos()
+    {
+        if (hitPositionTransform != null)
+        {
+            Gizmos.color = Color.red; // Set gizmo color to red
+            Gizmos.DrawWireSphere(hitPositionTransform.position, hitRadius); // Draw a red wire sphere for the hit zone
         }
     }
 }
