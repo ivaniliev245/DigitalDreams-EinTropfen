@@ -4123,14 +4123,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.509434, g: 0.03123889, b: 0.03123889, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5572510439156411324, guid: 6308eb564fb16f54580caf66cc47605c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a13474a31c062db439ba23a0ed64b7aa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4763,9 +4763,17 @@ PrefabInstance:
       value: 4278190093
       objectReference: {fileID: 0}
     - target: {fileID: 432314034043344720, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 432314034043344720, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2423901941277185884, guid: c6f9b2e886484f64998f6fd66465470a, type: 3}
+      objectReference: {fileID: 21300000, guid: 34ccf1e195a3d7f439c7d843d1a1071d, type: 3}
+    - target: {fileID: 432314034043344720, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 3.09
+      objectReference: {fileID: 0}
     - target: {fileID: 783818297884200247, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_Name
       value: Zombie_Panel
@@ -4925,9 +4933,17 @@ PrefabInstance:
       value: 4278190080
       objectReference: {fileID: 0}
     - target: {fileID: 3115952838536362965, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3115952838536362965, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2423901941277185884, guid: c6f9b2e886484f64998f6fd66465470a, type: 3}
+      objectReference: {fileID: 21300000, guid: 34ccf1e195a3d7f439c7d843d1a1071d, type: 3}
+    - target: {fileID: 3115952838536362965, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 3.14
+      objectReference: {fileID: 0}
     - target: {fileID: 3421065511701333142, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_Name
       value: Donna_Fonatella_Panel _Panel
@@ -4969,9 +4985,17 @@ PrefabInstance:
       value: -0.000009574954
       objectReference: {fileID: 0}
     - target: {fileID: 4335820757575029416, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335820757575029416, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2423901941277185884, guid: c6f9b2e886484f64998f6fd66465470a, type: 3}
+      objectReference: {fileID: 21300000, guid: 34ccf1e195a3d7f439c7d843d1a1071d, type: 3}
+    - target: {fileID: 4335820757575029416, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 2.59
+      objectReference: {fileID: 0}
     - target: {fileID: 4651483522821378532, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_text
       value: BACK TO MAIN MENU
@@ -5077,21 +5101,37 @@ PrefabInstance:
       value: Fisher_panel
       objectReference: {fileID: 0}
     - target: {fileID: 6773010689718886321, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6773010689718886321, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2423901941277185884, guid: c6f9b2e886484f64998f6fd66465470a, type: 3}
+      objectReference: {fileID: 21300000, guid: 34ccf1e195a3d7f439c7d843d1a1071d, type: 3}
+    - target: {fileID: 6773010689718886321, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 3.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784626719635339352, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6784626719635339352, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2423901941277185884, guid: c6f9b2e886484f64998f6fd66465470a, type: 3}
+      objectReference: {fileID: 21300000, guid: 34ccf1e195a3d7f439c7d843d1a1071d, type: 3}
+    - target: {fileID: 6784626719635339352, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 2.9
+      objectReference: {fileID: 0}
     - target: {fileID: 7063341019770347913, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_Type
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7063341019770347913, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2423901941277185884, guid: c6f9b2e886484f64998f6fd66465470a, type: 3}
+      objectReference: {fileID: 21300000, guid: 34ccf1e195a3d7f439c7d843d1a1071d, type: 3}
     - target: {fileID: 7063341019770347913, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -5103,6 +5143,10 @@ PrefabInstance:
     - target: {fileID: 7063341019770347913, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063341019770347913, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 4.6
       objectReference: {fileID: 0}
     - target: {fileID: 7123176957524427005, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_fontColor.b
@@ -5125,9 +5169,17 @@ PrefabInstance:
       value: Big_Tuna_Panel
       objectReference: {fileID: 0}
     - target: {fileID: 7902556530455133108, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902556530455133108, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2423901941277185884, guid: c6f9b2e886484f64998f6fd66465470a, type: 3}
+      objectReference: {fileID: 21300000, guid: 34ccf1e195a3d7f439c7d843d1a1071d, type: 3}
+    - target: {fileID: 7902556530455133108, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 3.53
+      objectReference: {fileID: 0}
     - target: {fileID: 8667160415154443324, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: gameSceneName
       value: MainMenu
