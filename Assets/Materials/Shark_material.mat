@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Donna_Finatella_mat
+  m_Name: Shark_material
   m_Shader: {fileID: 4800000, guid: e4468eb8a8320f7488ddbb0e591f9fbc, type: 3}
   m_Parent: {fileID: 2100000, guid: 498eaa78891722c409251042897e2ecd, type: 2}
   m_ModifiedSerializedProperties: 16
@@ -32,11 +32,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _1st_ShadeMap:
-        m_Texture: {fileID: 2800000, guid: 008e7fc3f7d9a35419e8af22a52507ec, type: 3}
+        m_Texture: {fileID: 2800000, guid: afab1095fcef9614fa36eb20263559ce, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _2nd_ShadeMap:
-        m_Texture: {fileID: 2800000, guid: ec2f904865a5b8447a5fcdf0149da872, type: 3}
+        m_Texture: {fileID: 2800000, guid: afab1095fcef9614fa36eb20263559ce, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 008e7fc3f7d9a35419e8af22a52507ec, type: 3}
+        m_Texture: {fileID: 2800000, guid: afab1095fcef9614fa36eb20263559ce, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
