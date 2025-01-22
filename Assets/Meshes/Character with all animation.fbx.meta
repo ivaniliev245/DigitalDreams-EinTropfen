@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|complex_hit
-      takeName: Armature|complex_hit
-      internalID: 6417812769129331762
+      name: Armature|Armature|Armature|walk (1)
+      takeName: Armature|Armature|Armature|walk
+      internalID: -4268172723465704049
       firstFrame: 0
-      lastFrame: 98
+      lastFrame: 31
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -60,9 +60,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|hit_v1
-      takeName: Armature|hit_v1
-      internalID: 598108193105985189
+      name: Armature|Armature|Armature|hit_v1
+      takeName: Armature|Armature|Armature|hit_v1
+      internalID: 5062890282698369029
       firstFrame: 0
       lastFrame: 156
       wrapMode: 0
@@ -89,9 +89,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|idle
-      takeName: Armature|idle
-      internalID: -1978303741906493279
+      name: Armature|Armature|Armature|idle
+      takeName: Armature|Armature|Armature|idle
+      internalID: -6075444569960973409
       firstFrame: 0
       lastFrame: 298
       wrapMode: 0
@@ -100,7 +100,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -118,9 +118,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|long_attack_combo_sword
-      takeName: Armature|long_attack_combo_sword
-      internalID: -7172106898565291642
+      name: Armature|Armature|Armature|long_attack_combo_sword
+      takeName: Armature|Armature|Armature|long_attack_combo_sword
+      internalID: 8740317776332392891
       firstFrame: 0
       lastFrame: 163
       wrapMode: 0
@@ -147,9 +147,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|run
-      takeName: Armature|run
-      internalID: 1303299601406483602
+      name: Armature|Armature|Armature|run
+      takeName: Armature|Armature|Armature|run
+      internalID: -8303426155881059399
       firstFrame: 0
       lastFrame: 21
       wrapMode: 0
@@ -158,7 +158,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -176,9 +176,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|sport_hit
-      takeName: Armature|sport_hit
-      internalID: 1810068807909351593
+      name: Armature|Armature|Armature|sport_hit
+      takeName: Armature|Armature|Armature|sport_hit
+      internalID: 4463775092948444739
       firstFrame: 0
       lastFrame: 59
       wrapMode: 0
@@ -205,9 +205,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|turn_left
-      takeName: Armature|turn_left
-      internalID: 4779849874310193212
+      name: Armature|Armature|Armature|turn_left
+      takeName: Armature|Armature|Armature|turn_left
+      internalID: 6620116293235620608
       firstFrame: 0
       lastFrame: 28
       wrapMode: 0
@@ -234,9 +234,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|turn_r
-      takeName: Armature|turn_r
-      internalID: 1082980213932526927
+      name: Armature|Armature|Armature|turn_r
+      takeName: Armature|Armature|Armature|turn_r
+      internalID: 6971418758074236562
       firstFrame: 0
       lastFrame: 28
       wrapMode: 0
@@ -263,9 +263,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|walk
-      takeName: Armature|walk
-      internalID: -4799524434163024911
+      name: Armature|Armature|Armature|walk
+      takeName: Armature|Armature|Armature|walk
+      internalID: 1875891853626375771
       firstFrame: 0
       lastFrame: 31
       wrapMode: 0
@@ -274,7 +274,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -350,7 +350,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: 
+    rootMotionBoneName: Armature
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
