@@ -6,9 +6,9 @@ public class RainManager : MonoBehaviour
 {
     public List<GameObject> goodRaindropPrefabs; // List of good raindrop prefabs
     public List<GameObject> badRaindropPrefabs;  // List of bad raindrop prefabs
-    public Transform warriorTransform;          // Reference to the warrior
-    public float rainSpawnRate = 2.0f;          // Spawn interval in seconds
-    public float proximityThreshold = 1.0f;     // Proximity distance for checking drops
+    public Transform warriorTransform;           // Reference to the warrior
+    public float rainSpawnRate = 2.0f;           // Base spawn rate in seconds
+    public float proximityThreshold = 1.0f;      // Proximity distance for checking drops
 
     // Adjustable bounds for the raindrop spawn area
     public Vector2 spawnAreaX = new Vector2(-5f, 5f); // Min and Max X bounds
@@ -17,6 +17,9 @@ public class RainManager : MonoBehaviour
 
     // Adjustable scale randomness
     public Vector2 scaleRange = new Vector2(0.5f, 1.5f); // Min and Max scale
+
+    // Variance for dynamic spawn timing
+    public float spawnRateVariance = 1.0f;  // How much variance in spawn rate (in seconds)
 
     void Start()
     {
@@ -33,7 +36,10 @@ public class RainManager : MonoBehaviour
         while (true)
         {
             SpawnRaindrop();
-            yield return new WaitForSeconds(rainSpawnRate); // Wait for the spawn rate to elapse
+            
+            // Apply variance to the spawn rate
+            float randomizedRate = rainSpawnRate + Random.Range(-spawnRateVariance, spawnRateVariance);
+            yield return new WaitForSeconds(randomizedRate);
         }
     }
 

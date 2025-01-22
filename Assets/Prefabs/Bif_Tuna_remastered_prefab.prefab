@@ -56,7 +56,7 @@ MonoBehaviour:
   lifetime: 4
   destructionVFX: {fileID: 8205706795460263314, guid: 326e86d5729c54e479798cacab220bb2, type: 3}
   vfxLifetime: 2
-  collisionSound: {fileID: 8300000, guid: 59864b453e82ea54b9689d23b683fcf8, type: 3}
+  collisionSound: {fileID: 8300000, guid: ef97d1507d39fea44ba96b8ccdd4ca7c, type: 3}
   destructionSound: {fileID: 8300000, guid: 5c03e1e2275643344b9df8c8e75ad443, type: 3}
   mass: 1
   drag: 0
