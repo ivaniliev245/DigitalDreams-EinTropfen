@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -2288645207828412148}
   - component: {fileID: 3695195040004416555}
   - component: {fileID: 3140454181103848224}
+  - component: {fileID: -511156311260498331}
   m_Layer: 0
   m_Name: Bif_Tuna_remastered_prefab
   m_TagString: Untagged
@@ -55,6 +56,10 @@ MonoBehaviour:
   lifetime: 4
   destructionVFX: {fileID: 8205706795460263314, guid: 326e86d5729c54e479798cacab220bb2, type: 3}
   vfxLifetime: 2
+  collisionSound: {fileID: 8300000, guid: 59864b453e82ea54b9689d23b683fcf8, type: 3}
+  destructionSound: {fileID: 8300000, guid: 5c03e1e2275643344b9df8c8e75ad443, type: 3}
+  mass: 1
+  drag: 0
 --- !u!54 &-4890499919081255314
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -133,6 +138,103 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.73, y: 1.39, z: 3.25}
   m_Center: {x: 0, y: -0.26, z: 0.71}
+--- !u!82 &-511156311260498331
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341067121604219032}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &297859983830133380
 PrefabInstance:
   m_ObjectHideFlags: 0
