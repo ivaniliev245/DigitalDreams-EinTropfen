@@ -240,7 +240,7 @@ MonoBehaviour:
   vfxLifetime: 2
   collisionSound: {fileID: 8300000, guid: 48bb63e5a1ed1844db684e04e29a1587, type: 3}
   destructionSound: {fileID: 8300000, guid: b0c5f497a54ae694db56a1b2d12a00f8, type: 3}
-  mass: 2
+  mass: 1
   drag: 0
 --- !u!82 &6208064947167208862
 AudioSource:

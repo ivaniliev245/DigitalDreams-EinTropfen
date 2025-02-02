@@ -44,11 +44,6 @@ public class TextureOffset : MonoBehaviour
             material.SetTextureScale("_2nd_ShadeMap", textureTiling);
         }
 
-        // Scroll _HighColor if it's a texture (check if it exists as a texture property)
-        if (material.HasProperty("_HighColor"))
-        {
-            material.SetTextureOffset("_HighColor", currentOffset);
-            material.SetTextureScale("_HighColor", textureTiling);
-        }
+
     }
 }
