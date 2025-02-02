@@ -40,7 +40,8 @@ public class RainDroplet : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
-            Debug.LogError("AudioSource component is missing from the raindrop!");
+           Debug.Log("AudioSource component is missing from the raindrop!");
+
         }
 
         // Start the countdown for destroying the raindrop after the specified lifetime
