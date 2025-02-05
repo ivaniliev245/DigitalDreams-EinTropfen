@@ -11,6 +11,9 @@ public class RainDroplet : MonoBehaviour
     public GameObject destructionVFX; // Prefab for the destruction VFX
     public float vfxLifetime = 2.0f; // Time before the VFX is destroyed
 
+    public GameObject decalPrefab; // Prefab for the decal object
+    public float decalLifetime = 3.0f; // Time before the decal is destroyed
+
     public AudioClip collisionSound; // Sound to play on first collision
     public AudioClip destructionSound; // Sound to play on destruction
 
@@ -23,7 +26,6 @@ public class RainDroplet : MonoBehaviour
 
     void Start()
     {
-        // Cache the Rigidbody component
         rb = GetComponent<Rigidbody>();
         if (rb == null)
         {
@@ -31,20 +33,16 @@ public class RainDroplet : MonoBehaviour
         }
         else
         {
-            // Set Rigidbody properties
             rb.mass = mass;
             rb.linearDamping = drag;
         }
 
-        // Cache the AudioSource component (should already be attached to the GameObject)
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
-           Debug.Log("AudioSource component is missing from the raindrop!");
-
+            Debug.Log("AudioSource component is missing from the raindrop!");
         }
 
-        // Start the countdown for destroying the raindrop after the specified lifetime
         StartCoroutine(DestroyRaindropAfterTime(lifetime));
     }
 
@@ -59,19 +57,27 @@ public class RainDroplet : MonoBehaviour
 
     IEnumerator DestroyRaindropAfterTime(float lifetime)
     {
-        yield return new WaitForSeconds(lifetime); // Wait for the lifetime before destroying
+        yield return new WaitForSeconds(lifetime);
 
-        // Spawn the destruction VFX
         if (destructionVFX != null)
         {
             GameObject vfxInstance = Instantiate(destructionVFX, transform.position, Quaternion.identity);
-            Destroy(vfxInstance, vfxLifetime); // Destroy the VFX after its lifetime
+            Destroy(vfxInstance, vfxLifetime);
         }
 
-        // Play destruction sound
         SpawnAndPlaySound(destructionSound);
+        SpawnDecal();
 
-        Destroy(gameObject); // Destroy the raindrop
+        Destroy(gameObject);
+    }
+
+    void SpawnDecal()
+    {
+        if (decalPrefab != null)
+        {
+            GameObject decalInstance = Instantiate(decalPrefab, transform.position, Quaternion.identity);
+            Destroy(decalInstance, decalLifetime);
+        }
     }
 
     void PlaySound(AudioClip clip)
@@ -86,20 +92,16 @@ public class RainDroplet : MonoBehaviour
     {
         if (clip != null)
         {
-            // Create a new GameObject for the sound
             GameObject soundObject = new GameObject("SoundEffect");
             AudioSource tempAudioSource = soundObject.AddComponent<AudioSource>();
             tempAudioSource.clip = clip;
             tempAudioSource.Play();
-
-            // Destroy the sound object after the clip has finished playing
             Destroy(soundObject, clip.length);
         }
     }
 
     public bool IsInProximity()
     {
-        // Check if the raindrop is within the proximity threshold of the warrior
         if (warriorTransform != null)
         {
             float distance = Vector3.Distance(transform.position, warriorTransform.position);

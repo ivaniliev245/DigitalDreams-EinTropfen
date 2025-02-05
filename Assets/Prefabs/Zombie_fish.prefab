@@ -56,6 +56,8 @@ MonoBehaviour:
   lifetime: 4
   destructionVFX: {fileID: 7226888052703040409, guid: 7ec363c8df426644ea85f8d6d570561c, type: 3}
   vfxLifetime: 2
+  decalPrefab: {fileID: 9056069796694983839, guid: 738ab261c7551334a807d16d80ba555f, type: 3}
+  decalLifetime: 3
   collisionSound: {fileID: 8300000, guid: ef97d1507d39fea44ba96b8ccdd4ca7c, type: 3}
   destructionSound: {fileID: 8300000, guid: b0c5f497a54ae694db56a1b2d12a00f8, type: 3}
   mass: 1

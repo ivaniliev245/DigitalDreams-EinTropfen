@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Echos der Ahnen
+  m_text: Fish swatter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83168174222bd284daad8cf1d9da9209, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 83168174222bd284daad8cf1d9da9209, type: 2}

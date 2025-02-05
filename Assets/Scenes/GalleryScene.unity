@@ -2503,7 +2503,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\rABILITIES: FAST"
+  m_text: "\rABILITIES: DAMAGE"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83168174222bd284daad8cf1d9da9209, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 83168174222bd284daad8cf1d9da9209, type: 2}
@@ -3585,7 +3585,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 572952c042e0a664592311fb3683d46f, type: 2}
+  m_Texture: {fileID: 8400000, guid: e1b0b6bc25a5b32438edab84a9ff18f1, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -4695,7 +4695,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'POINTS: +2'
+  m_text: 'POINTS: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 83168174222bd284daad8cf1d9da9209, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 83168174222bd284daad8cf1d9da9209, type: 2}
@@ -6588,6 +6588,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flesh_1_button
       objectReference: {fileID: 0}
+    - target: {fileID: 2520994613736085208, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2522973464368519010, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_fontColor.b
       value: 0.5372549
@@ -6849,6 +6853,10 @@ PrefabInstance:
     - target: {fileID: 5772480060412590190, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_Name
       value: Title_text
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238415424647105280, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
+      propertyPath: m_text
+      value: Frankensteinfish
       objectReference: {fileID: 0}
     - target: {fileID: 6238415424647105280, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_fontStyle
@@ -8784,7 +8792,7 @@ RectTransform:
   m_GameObject: {fileID: 1560226108}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2001, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1941911767}
@@ -9144,6 +9152,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 536271670430972028, guid: 73cfdc35afda02b4eb7c0dea866ca8a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074938208756243575, guid: 73cfdc35afda02b4eb7c0dea866ca8a9, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 244613b6ad497c24aaa1e16aee39899e, type: 3}
+    - target: {fileID: 2074938208756243575, guid: 73cfdc35afda02b4eb7c0dea866ca8a9, type: 3}
+      propertyPath: m_ControlledAudioTrackCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074938208756243575, guid: 73cfdc35afda02b4eb7c0dea866ca8a9, type: 3}
+      propertyPath: m_DirectAudioMutes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074938208756243575, guid: 73cfdc35afda02b4eb7c0dea866ca8a9, type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074938208756243575, guid: 73cfdc35afda02b4eb7c0dea866ca8a9, type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2074938208756243575, guid: 73cfdc35afda02b4eb7c0dea866ca8a9, type: 3}
+      propertyPath: m_TargetAudioSources.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5277338612598840227, guid: 73cfdc35afda02b4eb7c0dea866ca8a9, type: 3}
@@ -10058,7 +10090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1941911767
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10581,7 +10613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Name: FISHER
+  m_text: 'Name: frankfish
 
 '
   m_isRightToLeft: 0
