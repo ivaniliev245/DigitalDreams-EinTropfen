@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: wood
+  m_Name: wood _floor
   m_Shader: {fileID: 4800000, guid: be891319084e9d147b09d89e80ce60e0, type: 3}
-  m_Parent: {fileID: 2100000, guid: 7f1974d9067625d4894087266feb7a97, type: 2}
+  m_Parent: {fileID: 2100000, guid: 2f7414cd0eae3e04eb900996160059bb, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _EMISSIVE_SIMPLE
@@ -38,13 +38,19 @@ Material:
     - _2nd_ShadeColor_Feather: 0.0001
     - _2nd_ShadeColor_Step: 0
     - _BaseShade_Feather: 0.0001
-    - _Offset_Z: -0.67
-    - _Outline_Width: 0.25
+    - _BlurLevelMatcap: 0
+    - _HighColor_Power: 0
+    - _Is_OutlineTex: 0
+    - _MatCap: 0
+    - _Outline_Width: 0.7
+    - _RimLight: 0
+    - _RimLight_Power: 0
+    - _Set_SystemShadowsToBase: 1
     - _ShadeColor_Step: 0
-    - _Tweak_SystemShadowsLevel: 0.037
+    - _Tweak_SystemShadowsLevel: -0.328
     m_Colors:
-    - _BaseColor: {r: 0.41509432, g: 0.2579809, b: 0.17817728, a: 1}
-    - _Color: {r: 0.4150943, g: 0.25798088, b: 0.17817724, a: 1}
+    - _BaseColor: {r: 0.37486643, g: 0.21520548, b: 0.13138346, a: 1}
+    - _Color: {r: 0.3748664, g: 0.21520543, b: 0.13138342, a: 1}
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
