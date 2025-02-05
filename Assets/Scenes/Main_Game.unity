@@ -8089,12 +8089,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9025b56b92a656b49a1f2cd8e8ca26fe, type: 3}
+  m_Resource: {fileID: 8300000, guid: 9025b56b92a656b49a1f2cd8e8ca26fe, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -8224,8 +8224,9 @@ MonoBehaviour:
   goodRaindropPrefabs:
   - {fileID: 341067121604219032, guid: fa7e9be549285a74288aee848b250458, type: 3}
   - {fileID: 2831724761287408344, guid: c37c81369f128154c91e80fbdae43d43, type: 3}
-  badRaindropPrefabs:
   - {fileID: 779647402741673059, guid: 24440ed5c29b8ee41926191ebed8c621, type: 3}
+  badRaindropPrefabs:
+  - {fileID: 2831724761287408344, guid: c25d38e2d3bc7e040bc99c58ebab580a, type: 3}
   warriorTransform: {fileID: 780404933}
   rainSpawnRate: 1
   proximityThreshold: 2.04
