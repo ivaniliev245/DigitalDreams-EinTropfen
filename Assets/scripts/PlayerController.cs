@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using Unity.Cinemachine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,12 +25,32 @@ public class PlayerController : MonoBehaviour
     public AudioSource collisionAudioSource;
     public AudioSource flyingAudioSource;
 
+    private HashSet<GameObject> trackedBadObjects = new HashSet<GameObject>();
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(HandleSpacebarPressWithDelay());
         }
+
+        DetectBadObjects();
+    }
+
+    void DetectBadObjects()
+    {
+        GameObject[] badObjects = GameObject.FindGameObjectsWithTag("bad");
+        foreach (GameObject badObject in badObjects)
+        {
+            if (!trackedBadObjects.Contains(badObject))
+            {
+                trackedBadObjects.Add(badObject);
+                score -= 1;
+                UpdateScoreText();
+            }
+        }
+
+        trackedBadObjects.RemoveWhere(obj => obj == null); // Remove destroyed objects
     }
 
     IEnumerator HandleSpacebarPressWithDelay()
@@ -53,7 +74,6 @@ public class PlayerController : MonoBehaviour
             {
                 foundRaindrop = true;
 
-                // Trigger the hit sound from the assigned hitAudioSource
                 if (hitAudioSource != null && !hitAudioSource.isPlaying)
                 {
                     hitAudioSource.Play();
@@ -61,11 +81,11 @@ public class PlayerController : MonoBehaviour
 
                 if (raindrop.isGood)
                 {
-                    score += 1;
+                    score += 2;
                 }
                 else
                 {
-                    score -= 1;
+                    score -= 0;
                 }
 
                 StartCoroutine(MoveDropletToCamera(raindrop, previousScore));
@@ -78,7 +98,6 @@ public class PlayerController : MonoBehaviour
             previousScore = score;
             score -= 1;
 
-            // Trigger collision sound from the assigned collisionAudioSource
             if (previousScore != score && collisionAudioSource != null && !collisionAudioSource.isPlaying)
             {
                 collisionAudioSource.Play();
@@ -98,7 +117,6 @@ public class PlayerController : MonoBehaviour
         float progress = 0f;
         float adjustedSpeed = hitSpeed / (rb != null ? rb.mass : 1.0f);
 
-        // Trigger flying sound from the assigned flyingAudioSource
         if (flyingAudioSource != null && !flyingAudioSource.isPlaying)
         {
             flyingAudioSource.Play();

@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9, y: 1.9, z: 1.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1473405630108447599}
@@ -56,7 +56,7 @@ MonoBehaviour:
   lifetime: 15
   destructionVFX: {fileID: 7226888052703040409, guid: 7ec363c8df426644ea85f8d6d570561c, type: 3}
   vfxLifetime: 2
-  decalPrefab: {fileID: 9056069796694983839, guid: 738ab261c7551334a807d16d80ba555f, type: 3}
+  decalPrefab: {fileID: 8740218601143052840, guid: 26cee6252db03214d9d395a6df0ad327, type: 3}
   decalLifetime: 25
   collisionSound: {fileID: 8300000, guid: ef97d1507d39fea44ba96b8ccdd4ca7c, type: 3}
   destructionSound: {fileID: 8300000, guid: b0c5f497a54ae694db56a1b2d12a00f8, type: 3}
@@ -130,8 +130,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.02, y: 1.13, z: 3.46}
-  m_Center: {x: 0.03, y: 0, z: -1.56}
+  m_Size: {x: 1.47, y: 1.79, z: 5.02}
+  m_Center: {x: 0.03, y: 0, z: -2.17}
 --- !u!82 &-1375031052284290920
 AudioSource:
   m_ObjectHideFlags: 0
@@ -239,15 +239,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 97f149a87da061e4f81549d4d7f980f0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27955
+      value: 0.43999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 97f149a87da061e4f81549d4d7f980f0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.27955
+      value: 0.43999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 97f149a87da061e4f81549d4d7f980f0, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.27955
+      value: 0.43999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 97f149a87da061e4f81549d4d7f980f0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -289,10 +289,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 97f149a87da061e4f81549d4d7f980f0, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7284929648177291678, guid: 97f149a87da061e4f81549d4d7f980f0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 8e62f83b630058941abc80fd2df4cac6, type: 2}
+    - target: {fileID: -7146359073500734243, guid: 97f149a87da061e4f81549d4d7f980f0, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4213761076027111091, guid: 97f149a87da061e4f81549d4d7f980f0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -1656942841561530420, guid: 97f149a87da061e4f81549d4d7f980f0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
