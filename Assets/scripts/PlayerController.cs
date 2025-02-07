@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
                 if (raindrop.isGood)
                 {
-                    score += 20;
+                    score += 5;
                 }
 
                 StartCoroutine(MoveDropletToCamera(raindrop));
