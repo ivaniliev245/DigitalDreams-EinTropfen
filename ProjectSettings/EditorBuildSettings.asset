@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GalleryScene.unity
     guid: 16e39f0d2d26b3c4e9a881c71e921905
+  - enabled: 1
+    path: Assets/Scenes/gamelost.unity
+    guid: 163bb280d239da641bff806243b49e16
+  - enabled: 1
+    path: Assets/Scenes/gamewon.unity
+    guid: a35dc55a7db06bc4296e5c545a3ecf5d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

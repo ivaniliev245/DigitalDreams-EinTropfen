@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float proximityThreshold = 1.0f;
     public int score = 0;
     public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI timerText; // Added for displaying the timer
+    public TextMeshProUGUI timerText;
 
     public CinemachineImpulseSource impulseSource;
     public GameObject dropletHitEffect;
@@ -27,9 +27,9 @@ public class PlayerController : MonoBehaviour
     public AudioSource collisionAudioSource;
     public AudioSource flyingAudioSource;
 
-    public float timerDuration = 60.0f; // Adjustable timer in seconds
-    public string timeoutSceneName;     // Assignable scene for timer end
-    public string scoreTargetSceneName; // Assignable scene for reaching 30 points
+    public float timerDuration = 60.0f;
+    public string timeoutSceneName;
+    public string scoreTargetSceneName;
 
     private float timer;
     private HashSet<GameObject> trackedBadObjects = new HashSet<GameObject>();
@@ -37,22 +37,18 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         timer = timerDuration;
-        UpdateTimerText(); // Initialize timer display
+        UpdateScoreText();
+        UpdateTimerText();
     }
 
     void Update()
     {
         timer -= Time.deltaTime;
-        UpdateTimerText(); // Update timer display
+        UpdateTimerText();
 
         if (timer <= 0)
         {
             SceneManager.LoadScene(timeoutSceneName);
-        }
-
-        if (score >= 30)
-        {
-            SceneManager.LoadScene(scoreTargetSceneName);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -73,6 +69,7 @@ public class PlayerController : MonoBehaviour
                 trackedBadObjects.Add(badObject);
                 score -= 1;
                 UpdateScoreText();
+                CheckScoreForSceneSwitch();
             }
         }
 
@@ -92,7 +89,6 @@ public class PlayerController : MonoBehaviour
     {
         RainDroplet[] raindrops = FindObjectsOfType<RainDroplet>();
         bool foundRaindrop = false;
-        int previousScore = score;
 
         foreach (RainDroplet raindrop in raindrops)
         {
@@ -107,29 +103,29 @@ public class PlayerController : MonoBehaviour
 
                 if (raindrop.isGood)
                 {
-                    score += 5;
+                    score += 20;
                 }
 
-                StartCoroutine(MoveDropletToCamera(raindrop, previousScore));
+                StartCoroutine(MoveDropletToCamera(raindrop));
                 break;
             }
         }
 
         if (!foundRaindrop)
         {
-            previousScore = score;
             score -= 1;
 
-            if (previousScore != score && collisionAudioSource != null && !collisionAudioSource.isPlaying)
+            if (collisionAudioSource != null && !collisionAudioSource.isPlaying)
             {
                 collisionAudioSource.Play();
             }
         }
 
         UpdateScoreText();
+        CheckScoreForSceneSwitch();
     }
 
-    IEnumerator MoveDropletToCamera(RainDroplet raindrop, int previousScore)
+    IEnumerator MoveDropletToCamera(RainDroplet raindrop)
     {
         Rigidbody rb = raindrop.GetComponent<Rigidbody>();
         Transform dropletTransform = raindrop.transform;
@@ -156,7 +152,7 @@ public class PlayerController : MonoBehaviour
             flyingAudioSource.Stop();
         }
 
-        if (previousScore != score && collisionAudioSource != null && !collisionAudioSource.isPlaying)
+        if (collisionAudioSource != null && !collisionAudioSource.isPlaying)
         {
             collisionAudioSource.Play();
         }
@@ -198,6 +194,14 @@ public class PlayerController : MonoBehaviour
         if (timerText != null)
         {
             timerText.text = "Time Left: " + Mathf.CeilToInt(timer) + "s";
+        }
+    }
+
+    void CheckScoreForSceneSwitch()
+    {
+        if (score >= 30)
+        {
+            SceneManager.LoadScene(scoreTargetSceneName);
         }
     }
 
