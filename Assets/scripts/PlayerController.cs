@@ -3,6 +3,7 @@ using TMPro;
 using Unity.Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float proximityThreshold = 1.0f;
     public int score = 0;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI timerText; // Added for displaying the timer
 
     public CinemachineImpulseSource impulseSource;
     public GameObject dropletHitEffect;
@@ -25,10 +27,34 @@ public class PlayerController : MonoBehaviour
     public AudioSource collisionAudioSource;
     public AudioSource flyingAudioSource;
 
+    public float timerDuration = 60.0f; // Adjustable timer in seconds
+    public string timeoutSceneName;     // Assignable scene for timer end
+    public string scoreTargetSceneName; // Assignable scene for reaching 30 points
+
+    private float timer;
     private HashSet<GameObject> trackedBadObjects = new HashSet<GameObject>();
+
+    void Start()
+    {
+        timer = timerDuration;
+        UpdateTimerText(); // Initialize timer display
+    }
 
     void Update()
     {
+        timer -= Time.deltaTime;
+        UpdateTimerText(); // Update timer display
+
+        if (timer <= 0)
+        {
+            SceneManager.LoadScene(timeoutSceneName);
+        }
+
+        if (score >= 30)
+        {
+            SceneManager.LoadScene(scoreTargetSceneName);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(HandleSpacebarPressWithDelay());
@@ -50,7 +76,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        trackedBadObjects.RemoveWhere(obj => obj == null); // Remove destroyed objects
+        trackedBadObjects.RemoveWhere(obj => obj == null);
     }
 
     IEnumerator HandleSpacebarPressWithDelay()
@@ -81,11 +107,7 @@ public class PlayerController : MonoBehaviour
 
                 if (raindrop.isGood)
                 {
-                    score += 2;
-                }
-                else
-                {
-                    score -= 0;
+                    score += 5;
                 }
 
                 StartCoroutine(MoveDropletToCamera(raindrop, previousScore));
@@ -168,6 +190,14 @@ public class PlayerController : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = "Score: " + score;
+        }
+    }
+
+    void UpdateTimerText()
+    {
+        if (timerText != null)
+        {
+            timerText.text = "Time Left: " + Mathf.CeilToInt(timer) + "s";
         }
     }
 
