@@ -7025,7 +7025,7 @@ PrefabInstance:
     - target: {fileID: 8352241312685879451, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_Texture
       value: 
-      objectReference: {fileID: 8400000, guid: 572952c042e0a664592311fb3683d46f, type: 2}
+      objectReference: {fileID: 8400000, guid: a5e5acc67cb197b4ab05a0b7c36ec73a, type: 2}
     - target: {fileID: 8352241312685879451, guid: 2965748efcb3ef74d982aa8c041b9347, type: 3}
       propertyPath: m_RaycastPadding.x
       value: 57.94
@@ -9637,7 +9637,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1426951513312754941, guid: b9d8a4a829d9d4c4ba26dfd095d694df, type: 3}
       propertyPath: m_Name
-      value: Flesh_player
+      value: Fishermann
       objectReference: {fileID: 0}
     - target: {fileID: 1426951513312754941, guid: b9d8a4a829d9d4c4ba26dfd095d694df, type: 3}
       propertyPath: m_IsActive
@@ -9721,6 +9721,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4858935606040544982, guid: b9d8a4a829d9d4c4ba26dfd095d694df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908465910637593526, guid: b9d8a4a829d9d4c4ba26dfd095d694df, type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 83673dbc7fc5c4d48a929872821acc61, type: 3}
+    - target: {fileID: 6908465910637593526, guid: b9d8a4a829d9d4c4ba26dfd095d694df, type: 3}
+      propertyPath: m_ControlledAudioTrackCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908465910637593526, guid: b9d8a4a829d9d4c4ba26dfd095d694df, type: 3}
+      propertyPath: m_DirectAudioMutes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908465910637593526, guid: b9d8a4a829d9d4c4ba26dfd095d694df, type: 3}
+      propertyPath: m_DirectAudioVolumes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908465910637593526, guid: b9d8a4a829d9d4c4ba26dfd095d694df, type: 3}
+      propertyPath: m_EnabledAudioTracks.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908465910637593526, guid: b9d8a4a829d9d4c4ba26dfd095d694df, type: 3}
+      propertyPath: m_TargetAudioSources.Array.size
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
