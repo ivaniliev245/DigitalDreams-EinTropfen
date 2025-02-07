@@ -10394,11 +10394,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 910073088989221630, guid: f7bb6a163d2360e4db4f04f24a600b3f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 910073088989221630, guid: f7bb6a163d2360e4db4f04f24a600b3f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 910073088989221630, guid: f7bb6a163d2360e4db4f04f24a600b3f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10570,15 +10570,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7573965707315316889, guid: f7bb6a163d2360e4db4f04f24a600b3f, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7573965707315316889, guid: f7bb6a163d2360e4db4f04f24a600b3f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7573965707315316889, guid: f7bb6a163d2360e4db4f04f24a600b3f, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7573965707315316889, guid: f7bb6a163d2360e4db4f04f24a600b3f, type: 3}
       propertyPath: m_LocalScale.x
@@ -10698,7 +10698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8384550580142870943, guid: f7bb6a163d2360e4db4f04f24a600b3f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8527557406110715986, guid: f7bb6a163d2360e4db4f04f24a600b3f, type: 3}
       propertyPath: m_Type
@@ -10738,7 +10738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8791064118287236119, guid: f7bb6a163d2360e4db4f04f24a600b3f, type: 3}
       propertyPath: m_text
-      value: find the rythm!
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8791064118287236119, guid: f7bb6a163d2360e4db4f04f24a600b3f, type: 3}
       propertyPath: m_fontAsset
