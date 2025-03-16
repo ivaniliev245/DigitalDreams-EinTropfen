@@ -6,7 +6,7 @@ public class DestroyZombieOnTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Zombie"))
+        if (other.CompareTag("zombie"))
         {
             Destroy(other.gameObject, destroyDelay);
         }
