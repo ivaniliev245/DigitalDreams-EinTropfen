@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     private float timer;
     private HashSet<GameObject> trackedBadObjects = new HashSet<GameObject>();
+    public List<GameObject> spawnedPrefabs;
+    public float prefabLifetime = 3.0f;
 
     void Start()
     {
@@ -168,6 +170,15 @@ public class PlayerController : MonoBehaviour
             Instantiate(dropletHitEffect, cameraTransform.position, Quaternion.identity);
         }
 
+        if (spawnedPrefabs.Count > 0 && hitPositionTransform != null)
+        
+        {
+            int randomIndex = Random.Range(0, spawnedPrefabs.Count);
+            GameObject spawnedObject = Instantiate(spawnedPrefabs[randomIndex], hitPositionTransform.position, Quaternion.identity);
+            Destroy(spawnedObject, prefabLifetime);
+        }
+
+        
         Destroy(raindrop.gameObject);
     }
 
