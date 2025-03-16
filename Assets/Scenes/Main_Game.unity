@@ -7071,7 +7071,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 616494561}
   hitSpeed: 2
   hitPositionTransform: {fileID: 2059184251}
-  hitRadius: 2.24
+  hitRadius: 2.6
   hitDelay: 0.1
   hitAudioSource: {fileID: 88697056}
   collisionAudioSource: {fileID: 1702984335}
@@ -10346,7 +10346,7 @@ Transform:
   m_GameObject: {fileID: 2059184250}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.31, z: -14.4}
+  m_LocalPosition: {x: 0, y: 1.31, z: -3.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
