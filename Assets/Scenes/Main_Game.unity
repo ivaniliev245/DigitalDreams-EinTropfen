@@ -6215,7 +6215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 88697054}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &522286992
@@ -7340,6 +7340,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   Gravity: 9
+  ForwardReference: {fileID: 0}
 --- !u!114 &780404938
 MonoBehaviour:
   m_ObjectHideFlags: 0

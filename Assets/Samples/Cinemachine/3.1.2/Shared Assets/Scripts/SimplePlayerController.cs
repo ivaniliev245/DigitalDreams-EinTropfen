@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Unity.Cinemachine.Samples
 {
-    public abstract class SimplePlayerControllerBase : MonoBehaviour, Unity.Cinemachine.IInputAxisOwner
+    public abstract class SimplePlayerControllerBase : MonoBehaviour // Removed: , Unity.Cinemachine.IInputAxisOwner
     {
         public float Speed = 1f;
         public float SprintSpeed = 4;
@@ -26,13 +26,14 @@ namespace Unity.Cinemachine.Samples
 
         public UnityEvent Landed = new();
 
-        void IInputAxisOwner.GetInputAxes(List<IInputAxisOwner.AxisDescriptor> axes)
-        {
-            axes.Add(new() { DrivenAxis = () => ref MoveX, Name = "Move X" });
-            axes.Add(new() { DrivenAxis = () => ref MoveZ, Name = "Move Z" });
-            axes.Add(new() { DrivenAxis = () => ref Jump, Name = "Jump" });
-            axes.Add(new() { DrivenAxis = () => ref Sprint, Name = "Sprint" });
-        }
+        // Removed:
+        // void IInputAxisOwner.GetInputAxes(List<IInputAxisOwner.AxisDescriptor> axes)
+        // {
+        //     axes.Add(new() { DrivenAxis = () => ref MoveX, Name = "Move X" });
+        //     axes.Add(new() { DrivenAxis = () => ref MoveZ, Name = "Move Z" });
+        //     axes.Add(new() { DrivenAxis = () => ref Jump, Name = "Jump" });
+        //     axes.Add(new() { DrivenAxis = () => ref Sprint, Name = "Sprint" });
+        // }
 
         public virtual void SetStrafeMode(bool b) { }
         public abstract bool IsMoving { get; }
@@ -43,7 +44,7 @@ namespace Unity.Cinemachine.Samples
         public float Damping = 0.5f;
         public bool Strafe = false;
 
-        public enum ForwardModes { Camera, Player, World };
+        public enum ForwardModes { Camera, Player, World, GameObject }; // Added GameObject option
         public enum UpModes { Player, World };
 
         public ForwardModes InputForward = ForwardModes.Camera;
@@ -51,6 +52,7 @@ namespace Unity.Cinemachine.Samples
         public Camera CameraOverride;
         public LayerMask GroundLayers = 1;
         public float Gravity = 10;
+        public Transform ForwardReference; // Added ForwardReference variable
 
         float m_TimeLastGrounded = 0;
         Vector3 m_CurrentVelocityXZ;
@@ -78,70 +80,76 @@ namespace Unity.Cinemachine.Samples
             m_TimeLastGrounded = Time.time;
         }
 //------------------------------------begin--------update-------------------------
-  void Update()
+
+
+
+
+void Update()
+{
+    PreUpdate?.Invoke();
+    bool justLanded = ProcessJump();
+
+    float moveX = 0f;
+    float moveZ = 0f;
+
+    if (Input.GetKey(KeyCode.A))
+    {
+        moveX = -1f;
+    }
+    if (Input.GetKey(KeyCode.D))
+    {
+        moveX = 1f;
+    }
+    if (Input.GetKey(KeyCode.W))
+    {
+        moveZ = 1f;
+    }
+    if (Input.GetKey(KeyCode.S))
+    {
+        moveZ = -1f;
+    }
+
+    Debug.Log($"MoveX Input: {moveX}, MoveZ Input: {moveZ}");
+
+    Vector3 rawInput = new Vector3(moveX, 0, moveZ);
+    rawInput = Vector3.ClampMagnitude(rawInput, 1f);
+
+    Quaternion inputFrame = GetInputFrame(Vector3.Dot(rawInput, m_LastRawInput) < 0.8f);
+    m_LastRawInput = new Vector2(rawInput.x, rawInput.z);
+    Vector3 adjustedInput = inputFrame * rawInput;
+
+    if (!m_IsJumping)
+    {
+        m_IsSprinting = Input.GetKey(KeyCode.LeftShift) || Sprint.Value > 0.5f; // Keep Sprint functionality
+        Vector3 desiredVelocity = adjustedInput * (m_IsSprinting ? SprintSpeed : Speed);
+
+        if (InputForward == ForwardModes.GameObject) // Check if in GameObject forward mode
         {
-            PreUpdate?.Invoke();
-            bool justLanded = ProcessJump();
-
-            // Input handling
-            Vector3 rawInput = new Vector3(MoveX.Value, 0, MoveZ.Value);
-            rawInput = Vector3.ClampMagnitude(rawInput, 1f); // Ensure input vector magnitude is within range
-
-            // Transform input based on the chosen reference frame
-            Quaternion inputFrame = GetInputFrame(Vector3.Dot(rawInput, m_LastRawInput) < 0.8f);
-            m_LastRawInput = new Vector2(rawInput.x, rawInput.z);
-            Vector3 adjustedInput = inputFrame * rawInput;
-
-            if (!m_IsJumping)
-            {
-                m_IsSprinting = Sprint.Value > 0.5f;
-                Vector3 desiredVelocity = adjustedInput * (m_IsSprinting ? SprintSpeed : Speed);
-
-                float damping = justLanded ? 0f : Damping;
-                if (Vector3.Angle(m_CurrentVelocityXZ, desiredVelocity) < 100f)
-                    m_CurrentVelocityXZ = Vector3.Slerp(m_CurrentVelocityXZ, desiredVelocity, Damper.Damp(1f, damping, Time.deltaTime));
-                else
-                    m_CurrentVelocityXZ += Damper.Damp(desiredVelocity - m_CurrentVelocityXZ, damping, Time.deltaTime);
-            }
-
-            ApplyMotion();
-
-            // // Rotation logic for Strafe and Non-Strafe modes
-            // if (!Strafe && m_CurrentVelocityXZ.sqrMagnitude > 0.001f)
-            // {
-            //     // Rotate character to face movement direction
-            //     Quaternion targetRotation = Quaternion.LookRotation(m_CurrentVelocityXZ.normalized, UpDirection);
-            //     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Damper.Damp(1f, Damping, Time.deltaTime));
-            // }
-            // else if (Strafe)
-            // {
-            //     // Maintain fixed rotation for strafing
-            //     Quaternion targetRotation = Quaternion.LookRotation(inputFrame * Vector3.forward, UpDirection);
-            //     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Damper.Damp(1f, Damping, Time.deltaTime));
-            // }
-
-            // // Notify post-update actions
-            // PostUpdate?.Invoke(Quaternion.Inverse(transform.rotation) * m_CurrentVelocityXZ, m_IsSprinting ? JumpSpeed / SprintJumpSpeed : 1f);
-                        if (!Strafe && m_CurrentVelocityXZ.sqrMagnitude > 0.001f)
-            {
-                // Flip the rotation direction
-                Vector3 rotationDirection = -m_CurrentVelocityXZ.normalized; // Invert direction
-                var targetRotation = Quaternion.LookRotation(rotationDirection, UpDirection);
-
-                // Smoothly interpolate to the target rotation
-                transform.rotation = Quaternion.Slerp(
-                    transform.rotation, 
-                    targetRotation, 
-                    Damper.Damp(1f, Damping, Time.deltaTime));
-            }
-
-       
-
-       
-       
-       
-       
+            m_CurrentVelocityXZ = desiredVelocity; // Directly set velocity
         }
+        else
+        {
+            float damping = justLanded ? 0f : Damping;
+            if (Vector3.Angle(m_CurrentVelocityXZ, desiredVelocity) < 100f)
+                m_CurrentVelocityXZ = Vector3.Slerp(m_CurrentVelocityXZ, desiredVelocity, Damper.Damp(1f, damping, Time.deltaTime));
+            else
+                m_CurrentVelocityXZ += Damper.Damp(desiredVelocity - m_CurrentVelocityXZ, damping, Time.deltaTime);
+        }
+    }
+
+    ApplyMotion();
+
+    // Ensure rotation happens only when necessary
+    if (!Strafe && m_CurrentVelocityXZ.sqrMagnitude > 0.001f)
+    {
+        Vector3 rotationDirection = -m_CurrentVelocityXZ.normalized;
+        var targetRotation = Quaternion.LookRotation(rotationDirection, UpDirection);
+        transform.rotation = Quaternion.Slerp(
+            transform.rotation,
+            targetRotation,
+            Damper.Damp(1f, Damping, Time.deltaTime));
+    }
+}
 
 // ------------------------END----OF------UPDATE-----------------------
         Vector3 UpDirection => UpMode == UpModes.World ? Vector3.up : transform.up;
@@ -152,6 +160,27 @@ namespace Unity.Cinemachine.Samples
             {
                 case ForwardModes.Camera: frame = Camera.transform.rotation; break;
                 case ForwardModes.Player: return transform.rotation;
+                case ForwardModes.GameObject: // Revised case for GameObject
+                    if (ForwardReference != null)
+                    {
+                        Vector3 referenceForward = ForwardReference.forward;
+                        Vector3 referenceRight = ForwardReference.right;
+                        Vector3 upDirection = UpDirection;
+
+                        // Project forward and right onto the horizontal plane
+                        Vector3 projectedForward = Vector3.ProjectOnPlane(referenceForward, upDirection).normalized;
+                        Vector3 projectedRight = Vector3.ProjectOnPlane(referenceRight, upDirection).normalized;
+
+                        // Ensure orthogonality (important if projection caused issues)
+                        projectedRight = Vector3.Cross(upDirection, projectedForward).normalized;
+
+                        // Create a rotation that aligns its local X with projectedRight and local Z with projectedForward
+                        return Quaternion.LookRotation(projectedForward, upDirection);
+                    }
+                    else
+                    {
+                        return Quaternion.identity; // Fallback if no GameObject is assigned
+                    }
             }
             var playerUp = transform.up;
             var up = frame * Vector3.up;
@@ -161,7 +190,6 @@ namespace Unity.Cinemachine.Samples
             var angle = UnityVectorExtensions.SignedAngle(up, playerUp, axis);
             return Quaternion.AngleAxis(angle, axis) * frame;
         }
-
         void ApplyMotion()
         {
             Vector3 motion = m_CurrentVelocityXZ;  //ed
@@ -172,7 +200,7 @@ namespace Unity.Cinemachine.Samples
                 transform.position += motion * Time.deltaTime;
         }
 
-         bool ProcessJump()
+        bool ProcessJump()
         {
             bool justLanded = false;
             var now = Time.time;
@@ -191,7 +219,7 @@ namespace Unity.Cinemachine.Samples
                 // If we are falling, assume the jump pose
                 if (!grounded && now - m_TimeLastGrounded > kDelayBeforeInferringJump)
                     m_IsJumping = true;
- 
+
                 if (m_IsJumping)
                 {
                     StartJump?.Invoke();
