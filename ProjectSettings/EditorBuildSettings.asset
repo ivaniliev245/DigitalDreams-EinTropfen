@@ -21,5 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/gamewon.unity
     guid: a35dc55a7db06bc4296e5c545a3ecf5d
   m_configObjects:
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 8eb57ef5a76ec5b4eb53e9f6bd8da255, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
