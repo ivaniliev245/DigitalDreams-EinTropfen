@@ -10,21 +10,21 @@ Material:
   m_Name: wood
   m_Shader: {fileID: 4800000, guid: be891319084e9d147b09d89e80ce60e0, type: 3}
   m_Parent: {fileID: 2100000, guid: 2f7414cd0eae3e04eb900996160059bb, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 16
   m_ValidKeywords:
   - _EMISSIVE_SIMPLE
   - _IS_ANGELRING_OFF
-  - _IS_CLIPPING_OFF
-  - _IS_OUTLINE_CLIPPING_NO
+  - _IS_CLIPPING_TRANSMODE
+  - _IS_OUTLINE_CLIPPING_YES
   - _OUTLINE_NML
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2450
   stringTagMap:
     IgnoreProjection: False
-    RenderType: Opaque
+    RenderType: TransparentCutout
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 
@@ -38,13 +38,28 @@ Material:
     - _2nd_ShadeColor_Feather: 0.0001
     - _2nd_ShadeColor_Step: 0
     - _BaseShade_Feather: 0.0001
+    - _BlurLevelMatcap: 6.14
+    - _ClippingMode: 2
+    - _Inverse_Clipping: 0
+    - _IsBaseMapAlphaAsClippingMask: 0
+    - _Is_Ortho: 0
+    - _Is_UseTweakMatCapOnShadow: 1
+    - _MatCap: 1
     - _Offset_Z: -0.67
     - _Outline_Width: 0.25
+    - _RimLight: 1
+    - _SPRDefaultUnlitColorMask: 15
+    - _SRPDefaultUnlitColMode: 1
     - _ShadeColor_Step: 0
+    - _TransparentEnabled: 0
+    - _TweakMatCapOnShadow: 0.819
     - _Tweak_SystemShadowsLevel: 0.037
+    - _ZOverDrawMode: 0
+    - _ZWriteMode: 1
     m_Colors:
     - _BaseColor: {r: 0.41509432, g: 0.2579809, b: 0.17817728, a: 1}
     - _Color: {r: 0.4150943, g: 0.25798088, b: 0.17817724, a: 1}
+    - _MatCapColor: {r: 0.16214824, g: 1, b: 0, a: 1}
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
