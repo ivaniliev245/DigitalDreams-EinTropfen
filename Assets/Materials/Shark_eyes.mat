@@ -32,19 +32,23 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _1st_ShadeMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: afab1095fcef9614fa36eb20263559ce, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _2nd_ShadeMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: afab1095fcef9614fa36eb20263559ce, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 008e7fc3f7d9a35419e8af22a52507ec, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Emissive_Tex:
+        m_Texture: {fileID: 2800000, guid: afab1095fcef9614fa36eb20263559ce, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: afab1095fcef9614fa36eb20263559ce, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -57,7 +61,7 @@ Material:
     - _BaseShade_Feather: 0.0001
     - _Clipping_Level: 0
     - _CullMode: 0
-    - _HighColor_Power: 0
+    - _HighColor_Power: 0.295
     - _Is_BlendAddToHiColor: 1
     - _Metallic: 0.039
     - _ShadeColor_Step: 0.48
@@ -65,10 +69,11 @@ Material:
     - _StencilComp: 0
     - _Tweak_SystemShadowsLevel: 0.5
     m_Colors:
-    - _1st_ShadeColor: {r: 0.36078432, g: 0.30980393, b: 0.38431376, a: 1}
-    - _2nd_ShadeColor: {r: 0.16862746, g: 0.16862746, b: 0.18431373, a: 1}
+    - _1st_ShadeColor: {r: 1, g: 1, b: 1, a: 1}
+    - _2nd_ShadeColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Emissive_Color: {r: 0.32704395, g: 0.32704395, b: 0.32704395, a: 1}
     - _HighColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

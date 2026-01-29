@@ -46,5 +46,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Front_FX_Sorting
+    uniqueID: 563978225
+    locked: 0
   m_RenderingLayers:
   - Default
+  - Front_FX_Rendering_Layer
