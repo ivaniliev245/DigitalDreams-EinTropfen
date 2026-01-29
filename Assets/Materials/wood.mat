@@ -41,14 +41,18 @@ Material:
     - _BlurLevelMatcap: 6.14
     - _ClippingMode: 2
     - _CullMode: 0
+    - _HighColor_Power: 0
     - _Inverse_Clipping: 0
     - _IsBaseMapAlphaAsClippingMask: 0
+    - _Is_BlendAddToHiColor: 1
     - _Is_Ortho: 0
     - _Is_UseTweakMatCapOnShadow: 1
     - _MatCap: 1
     - _Offset_Z: -0.67
     - _Outline_Width: 0.25
     - _RimLight: 1
+    - _RimLight_InsideMask: 0.405
+    - _RimLight_Power: 0.722
     - _SPRDefaultUnlitColorMask: 15
     - _SRPDefaultUnlitColMode: 1
     - _ShadeColor_Step: 0
@@ -58,10 +62,14 @@ Material:
     - _ZOverDrawMode: 0
     - _ZWriteMode: 1
     m_Colors:
-    - _BaseColor: {r: 0.41509432, g: 0.2579809, b: 0.17817728, a: 1}
-    - _Color: {r: 0.4150943, g: 0.25798088, b: 0.17817724, a: 1}
+    - _1st_ShadeColor: {r: 0.14901961, g: 0.0627451, b: 0.015686275, a: 1}
+    - _2nd_ShadeColor: {r: 0.10196079, g: 0.03529412, b: 0, a: 1}
+    - _BaseColor: {r: 0.4156863, g: 0.25490198, b: 0.17254902, a: 1}
+    - _Color: {r: 0.41568628, g: 0.25490195, b: 0.17254898, a: 1}
+    - _HighColor: {r: 1, g: 1, b: 1, a: 1}
     - _MatCapColor: {r: 0.16214824, g: 1, b: 0, a: 1}
     - _Outline_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _RimLightColor: {r: 0.64705884, g: 0.5764706, b: 0.5568628, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4340526066325250556

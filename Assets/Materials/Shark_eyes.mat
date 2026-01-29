@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shark_material
+  m_Name: Shark_eyes
   m_Shader: {fileID: 4800000, guid: e4468eb8a8320f7488ddbb0e591f9fbc, type: 3}
   m_Parent: {fileID: 2100000, guid: 498eaa78891722c409251042897e2ecd, type: 2}
   m_ModifiedSerializedProperties: 16
@@ -67,8 +67,8 @@ Material:
     m_Colors:
     - _1st_ShadeColor: {r: 0.36078432, g: 0.30980393, b: 0.38431376, a: 1}
     - _2nd_ShadeColor: {r: 0.16862746, g: 0.16862746, b: 0.18431373, a: 1}
-    - _BaseColor: {r: 0.5272526, g: 0.4432182, b: 0.5660378, a: 1}
-    - _Color: {r: 0.5272526, g: 0.44321817, b: 0.5660378, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _HighColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
